@@ -28,13 +28,15 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private static final String ACCESS_KEY = "ab3411e4ac868c2646c0ed488dfd919ef612b04c264f3374c97fff98ed253dc9";
 
+    private final int COUNT = 30;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         UnsplashApiService unsplashApiService = new UnsplashApiService(ACCESS_KEY);
-        unsplashApiService.getRandomPhotos(30, new Callback() {
+        unsplashApiService.getRandomPhotos(COUNT, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.e(TAG, "Failed to fetch random photos", e);
